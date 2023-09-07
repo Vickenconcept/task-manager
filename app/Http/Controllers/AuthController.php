@@ -17,7 +17,7 @@ class AuthController extends Controller
 
         User::create($request->validated());
 
-        return to_route('login');
+        return to_route('register.success');
     }
 
     public function login(CreateUserRequest $request)
@@ -43,7 +43,7 @@ class AuthController extends Controller
         return $user;
     }
 
-    public function destroy(Request $request)
+    public function logout(Request $request)
     {
         user()->tokens()->delete();
         Auth::logout();

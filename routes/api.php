@@ -17,7 +17,6 @@ use App\Http\Controllers\TodoController;
 */
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
-
     Route::resource('todos', TodoController::class);
+    Route::delete('todos/completed/clear', [TodoController::class, 'clearCompleted'])->name('completed.clear');
 });

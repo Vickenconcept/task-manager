@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-white">
 
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,21 @@
 </head>
 
 <body class="h-full">
-    <div id="app">
+    <div id="app" class="h-full bg-gray-100 overflow-scroll">
+
+        <form action="{{ route('auth.logout') }}" method="POST">
+            @csrf
+
+            <a href="javascript:void(0)" onclick="this.closest('form').submit()">logout</a>
+        </form>
 
         {{ $slot }}
 
     </div>
 
     <input type="hidden" id="access_token" value="{{ access_token() }}">
+
+    @vite(['resources/js/frontend.js'])
 </body>
 
 </html>

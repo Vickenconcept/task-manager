@@ -13,7 +13,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return Response::api(['data' => Todo::all()]);
+        return Response::api(['data' => Todo::latest()->get()]);
     }
 
     /**
@@ -68,5 +68,14 @@ class TodoController extends Controller
         $todo->delete();
 
         return Response::api('todo deleted successfully!', Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function clearCompleted()
+    {
+        Todo::whereStatus('completed')->delete();
+        return Response::api('completed todo list deleted successfully!', Response::HTTP_NO_CONTENT);
     }
 }

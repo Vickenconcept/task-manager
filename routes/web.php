@@ -28,5 +28,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
 });
