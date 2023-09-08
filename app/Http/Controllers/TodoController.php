@@ -67,7 +67,7 @@ class TodoController extends Controller
     {
         $todo->delete();
 
-        return Response::api('todo deleted successfully!', Response::HTTP_NO_CONTENT);
+        return Response::api('todo deleted successfully!', Response::HTTP_OK);
     }
 
     /**
@@ -76,6 +76,6 @@ class TodoController extends Controller
     public function clearCompleted()
     {
         Todo::whereStatus('completed')->delete();
-        return Response::api('completed todo list deleted successfully!', Response::HTTP_NO_CONTENT);
+        return Response::api('completed todo list deleted successfully!', Response::HTTP_OK);
     }
 }

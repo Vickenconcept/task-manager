@@ -16,7 +16,13 @@ use App\Http\Controllers\TodoController;
 |
 */
 
+Route::controller(AuthController::class)->prefix('auth')->name('auth.')->group(function () {
+    Route::post('/register', 'register')->name('register');
+    Route::post('/login', 'login')->name('login');
+});
+
 Route::middleware('auth:sanctum')->group(function () {
+    Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
     Route::resource('todos', TodoController::class);
     Route::delete('todos/completed/clear', [TodoController::class, 'clearCompleted'])->name('completed.clear');
 });
