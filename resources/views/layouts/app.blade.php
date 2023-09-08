@@ -18,7 +18,7 @@
         <form action="{{ route('auth.logout') }}" method="POST">
             @csrf
 
-            <a href="javascript:void(0)" onclick="this.closest('form').submit()">logout</a>
+            <a href="javascript:void(0)" onclick="logout(this)">logout</a>
         </form>
 
         {{ $slot }}
@@ -29,5 +29,13 @@
 
     @vite(['resources/js/frontend.js'])
 </body>
+
+
+<script>
+    function logout(e) {
+        localStorage.clear();
+        e.closest('form').submit();
+    }
+</script>
 
 </html>

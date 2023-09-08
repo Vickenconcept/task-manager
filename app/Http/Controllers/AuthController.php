@@ -12,12 +12,14 @@ use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
-    public function register(CreateUserRequest $request): RedirectResponse
+    public function register(CreateUserRequest $request)
     {
 
-        User::create($request->validated());
+        $user = User::create($request->validated());
 
-        return to_route('register.success');
+        return $request->wantsJson()
+            ? Response::api(['data' => $user])
+            : to_route('register.success');
     }
 
     public function login(CreateUserRequest $request)
@@ -48,6 +50,8 @@ class AuthController extends Controller
         user()->tokens()->delete();
         Auth::logout();
 
-        return to_route('login');
+        return $request->wantsJson
+            ? Response::api('logged out successfully')
+            : to_route('login');
     }
 }

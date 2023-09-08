@@ -15,7 +15,7 @@ export const useTodoList = () => {
         if(!todo.title) return 'title is required';
 
         await http.post('todos', todo);
-
+        todo.title = null;
         getTodoList()
     }
 

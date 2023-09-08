@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useSortable } from '@vueuse/integrations/useSortable'
 import { useTodoList } from '../composables/todo-list';
 import TodoItem from './TodoItem.vue'
@@ -21,11 +21,17 @@ getTodoList()
 const el = ref(null)
 
 useSortable(el, todoList);
+
+const errorMessage = computed(() => {
+    const message = filter.value !== 'all' ? ` ${filter.value}` : '';
+    return `You have no${message} task to do`
+});
 </script>
 
 <template>
     <div class="flex flex-col justify-center items-center gap-4 p-6 text-lg font-serif">
         <div class="w-[600px] space-y-4">
+            <div class="my-10">Note: drag the todo item to reorder</div>
             <div class="mb-10 space-y-5">
                 <div class="grid grid-cols-4">
                     <input type="text" v-model="todo.title" class="todo-input">
@@ -46,8 +52,13 @@ useSortable(el, todoList);
                 </div>
             </div>
             <div ref="el" class="space-y-4">
-                <TodoItem v-for="(todo, index) in filterTodoList" :key="todo.id" :todo="todo"
-                    @delete-todo="deleteTodo(todo.id)" @complete-todo="completeTodo(index, todo.id)" />
+                <template v-if="filterTodoList.length">
+                    <TodoItem v-for="(todo, index) in filterTodoList" :key="todo.id" :todo="todo"
+                        @delete-todo="deleteTodo(todo.id)" @complete-todo="completeTodo(index, todo.id)" />
+                </template>
+                <div v-else>
+                    <h4 class="text-2xl font-bold">{{ errorMessage }}</h4>
+                </div>
             </div>
         </div>
     </div>
