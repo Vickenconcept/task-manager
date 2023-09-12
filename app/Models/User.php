@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Todo;
+use App\Models\Task;
+use App\Models\Project;
 
 class User extends Authenticatable
 {
@@ -44,8 +45,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function todo() {
+   
+    public function task() {
         
-        return $this->hasMany(Todo::class);
+        return $this->hasMany(Task::class);
     }
 }

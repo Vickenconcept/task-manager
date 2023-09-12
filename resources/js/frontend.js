@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import 'boxicons'
 
-import TodoList from './components/TodoList.vue';
+import TaskList from './components/TaskList.vue';
 
 const app = createApp({});
 
-app.component('todo-list', TodoList);
+app.component('task-list', TaskList);
 
 app.mount('#app');
 

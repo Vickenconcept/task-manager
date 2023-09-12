@@ -1,3 +1,3 @@
 <x-app-layout>
-    <todo-list></todo-list>
+    <task-list></task-list>
 </x-app-layout>

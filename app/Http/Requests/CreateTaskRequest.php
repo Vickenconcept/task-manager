@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class CreateTodoRequest extends FormRequest
+class CreateTaskRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class CreateTodoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => Rule::requiredIf($this->routeIs('todos.store')),
-            'status' => Rule::requiredIf($this->routeIs('todos.update'))
+            'title' => Rule::requiredIf($this->routeIs('tasks.store')),
+            'priority' => Rule::requiredIf($this->routeIs('tasks.update'))
         ];
     }
 

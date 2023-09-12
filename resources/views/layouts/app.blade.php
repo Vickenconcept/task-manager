@@ -14,12 +14,14 @@
 
 <body class="h-full">
     <div id="app" class="h-full bg-gray-100 overflow-scroll">
+        <div class=" px-10 py-5 ">
 
-        <form action="{{ route('auth.logout') }}" method="POST">
-            @csrf
+            <form action="{{ route('auth.logout') }}" method="POST">
+                @csrf
 
-            <a href="javascript:void(0)" onclick="logout(this)">logout</a>
-        </form>
+                <a href="javascript:void(0)" onclick="logout(this)">logout</a>
+            </form>
+        </div>
 
         {{ $slot }}
 
