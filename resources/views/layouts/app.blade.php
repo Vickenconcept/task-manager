@@ -5,39 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To-Do List</title>
+    <title>Task Manager</title>
+    <link rel="shortcut icon" type="image" href="./image/logo2.png">
+    {{-- <link rel="stylesheet" href="cart/assets/css/style.css"> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap links -->
+    <!-- fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {{-- <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> --}}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="h-full">
-    <div id="app" class="h-full bg-gray-100 overflow-scroll">
-        <div class=" px-10 py-5 ">
+    <x-header />
+    {{ $slot }}
 
-            <form action="{{ route('auth.logout') }}" method="POST">
-                @csrf
-
-                <a href="javascript:void(0)" onclick="logout(this)">logout</a>
-            </form>
-        </div>
-
-        {{ $slot }}
-
-    </div>
-
-    <input type="hidden" id="access_token" value="{{ access_token() }}">
-
-    @vite(['resources/js/frontend.js'])
+    <x-footer />
+    <a href="#" class="arrow"><i><img src="./image/up-arrow.png" alt="" width="50px"></i></a>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </body>
 
-
-<script>
-    function logout(e) {
-        localStorage.clear();
-        e.closest('form').submit();
-    }
-</script>
 
 </html>

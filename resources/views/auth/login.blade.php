@@ -1,51 +1,46 @@
 <x-guest-layout>
-  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=600" alt="Your Company">
-      <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
-    </div>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        @if (session()->has('invalidCredential'))
-            <div class="mb-4 rounded-lg bg-red-100 px-6 py-5 text-base text-red-700" role="alert">
-                {{ session('invalidCredential') }}
-            </div>
-        @endif
-      <form class="space-y-6" action="{{ route('auth.login') }}" method="POST">
-        @csrf
-
-        <div>
-          <label for="email" class="input-label">Email address</label>
-          <div class="mt-2">
-            <input id="email" name="email" value="{{ old('email') }}" type="email" autocomplete="email" class="form-control">
-            @error('email')
-                <span class="text-xs text-red-400">{{ $message }}</span>
-            @enderror
+  <!-- login -->
+  <div class="container login">
+      <div class="row">
+          <div class="col-md-4" id="side1">
+              <h3>Hello Friend!</h3>
+              <p>Create New Account</p>
+              <a href="{{ route('register') }}" style="text-decoration: none; color:white"><div id="btn">Sign up</div></a>
           </div>
-        </div>
+          <form class="col-md-8" id="side2" action="{{ route('auth.login') }}" method="POST">
+              <h3>Login Account</h3>
+              @if (session()->has('invalidCredential'))
+                  <div class="bg-arlert" role="alert">
+                      {{ session('invalidCredential') }}
+                  </div>
+              @endif
+              <div class="inp">
+                  @csrf
+                  <input type="email" placeholder="Email" id="email" name="email" value="{{ old('email') }}"
+                      type="email" autocomplete="email" >
+                  @error('email')
+                      <span class="text-xs text-red-400">{{ $message }}</span>
+                  @enderror
+                  <input type="password" placeholder="Password" id="password" name="password" type="password"
+                      autocomplete="current-password" >
+                  @error('password')
+                      <span class="text-xs text-red-400">{{ $message }}</span>
+                  @enderror
+              </div>
+              <p>Forgot Your Password</p>
+              <div class="icons">
+                  <i class="fa-brands fa-twitter"></i>
+                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-instagram"></i>
+              </div>
+              <div id="login"><button type="submitt">LOG IN</button></div>
+          </form>
+      </div>
+  </div>
+  <!-- login -->
+ 
 
-        <div>
-          <div class="flex items-center justify-between">
-            <label for="password" class="input-label">Password</label>
-          </div>
-          <div class="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" class="form-control">
-            @error('password')
-                <span class="text-xs text-red-400">{{ $message }}</span>
-            @enderror
-          </div>
-        </div>
 
-        <div>
-          <button type="submit" class="btn-primary">Sign in</button>
-        </div>
-      </form>
-
-      <p class="mt-10 text-center text-sm text-gray-500">
-        Don't have Account?
-        <a href="{{ route('register') }}" class="font-semibold leading-6 text-blue-600 hover:text-blue-500">Register</a>
-      </p>
-    </div>
   </div>
 </x-guest-layout>

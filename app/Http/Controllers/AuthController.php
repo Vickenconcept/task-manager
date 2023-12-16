@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         $userData = $this->createAccessToken();
 
-        return $request->wantsJson() ? $userData : to_route('home');
+        return $request->wantsJson() ? $userData : to_route('home.index');
     }
 
     private function createAccessToken(): User
