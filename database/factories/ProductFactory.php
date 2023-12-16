@@ -23,7 +23,7 @@ class ProductFactory extends Factory
             'slug' => Str::slug($name),
             'price' => '2000',
             'hot_product' => 0,
-            'image' => fake()->url(),
+            'image' => 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNoaXJ0fGVufDB8fDB8fHww',
         ];
     }
 }

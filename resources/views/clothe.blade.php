@@ -17,7 +17,7 @@
                 <div class="col-md-3 py-3 py-md-0 ">
                     <div class="card mt-3">
                         <!-- <img src="img/p1.png" alt=""> -->
-                        <img src="{{ asset('images/p1.png') }}" alt="image">
+                        <img src="{{ $product->image }}" alt="image">
                         <div class="card-body">
                             <h3>{{ $product->name }}</h3>
                             <p>{{ $product->description }}</p>

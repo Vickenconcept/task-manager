@@ -20,7 +20,7 @@
           @if (auth()->check())
           <i class="fa-solid fa-user"></i>
           @endif
-          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="{{ route('cart.index') }}"><i class="fa-solid fa-cart-shopping"></i></a>
       </div>
   </div>
   <!-- top navbar -->

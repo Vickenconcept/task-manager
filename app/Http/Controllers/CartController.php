@@ -25,6 +25,7 @@ class CartController extends Controller
             'image' => 'sometimes',
             'price' => 'required',
         ]);
+        $payload['total'] = $payload['price'];
 
         $user = auth()->user();
 

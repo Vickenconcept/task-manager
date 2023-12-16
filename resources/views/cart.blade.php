@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products - April 7</title>
-    <link rel="stylesheet" href="shop.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=poppins:weight@300;500;600;700display=swap">
     <script src="https://cdn.tailwindcss.com"></script>
 
-
+    @livewireStyles
 </head>
 
 <body class="bg-gray-100">
+    
     <div class="container mx-auto mt-10">
         <div class="flex shadow-md my-10">
             <div class="w-3/4 bg-white px-10 py-10">
@@ -29,7 +28,8 @@
                 </div>
 
                 @foreach ($productsInCart as $product)
-                    <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
+                <livewire:product  :product="$product"/>
+                    {{-- <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
                         <div class="flex w-2/5"> <!-- product -->
                             <div class="w-20">
                                 <img class="h-24"
@@ -38,7 +38,6 @@
                             </div>
                             <div class="flex flex-col justify-between ml-4 flex-grow">
                                 <span class="font-bold text-sm"> {{ $product->product_name }}</span>
-                                <span class="text-red-500 text-xs">Apple</span>
                                <form action="{{ route('cart.destroy',['cart'=> $product]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
@@ -63,7 +62,7 @@
                         </div>
                         <span class="text-center w-1/5 font-semibold text-sm">${{ $product->price }}</span>
                         <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                    </div>
+                    </div> --}}
 
 
                    
@@ -80,7 +79,7 @@
                 </a>
             </div>
 
-            <div id="summary" class="w-1/4 px-8 py-10">
+            {{-- <div id="summary" class="w-1/4 px-8 py-10">
                 <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
                 <div class="flex justify-between mt-10 mb-5">
                     <span class="font-semibold text-sm uppercase">Items 3</span>
@@ -92,11 +91,6 @@
                         <option>Standard shipping - $10.00</option>
                     </select>
                 </div>
-                <div class="py-10">
-                    <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                    <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
-                </div>
-                <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
                 <div class="border-t mt-8">
                     <div class="flex font-semibold justify-between py-6 text-sm uppercase">
                         <span>Total cost</span>
@@ -105,10 +99,13 @@
                     <button
                         class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
-            </div>
+            </div> --}}
+            <livewire:checkout-card  :products="$productsInCart"/>
+           
 
         </div>
     </div>
+    @livewireScripts
 </body>
 
 

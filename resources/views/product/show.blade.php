@@ -434,38 +434,38 @@
             <div class="row">
                 <div class="col-2">
                     <div class="bg-red-500 h-72">
-                        <img src="{{ asset('images/banner2.jpg') }}" class="w-full h-full" id="ProductImg">
+                        <img src="{{ $product->image }}" class="w-full h-full" id="ProductImg">
 
                     </div>
     
                     <div class="small-img-row mt-2">
                         <div class="small-img-col">
-                            <img src="{{ asset('images/banner2.jpg') }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/banner2.jpg') }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/banner2.jpg') }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ asset('images/banner2.jpg') }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
                         </div>
                     </div>
     
                 </div>
                 <div class="col-2 ">
-                    <h1>{{ $product->name }}</h1>
-                    <h4>{{ $product->price }}</h4>
-                    <select>
+                    <h1 style="margin-left: 10px">{{ $product->name }}</h1>
+                    <h4 style="margin-left: 10px">{{ $product->price }}</h4>
+                    {{-- <select>
                         <option>Select size</option>
                         <option>XXL</option>
                         <option>XL</option>
                         <option>Large</option>
                         <option>Medium</option>
                         <option>Small</option>
-                    </select>
-                    <form action="{{ route('cart.store') }}" method="post" class="inline">
+                    </select> --}}
+                    <form action="{{ route('cart.store') }}" method="post" class="inline" style="margin-left: 10px">
                         @csrf
                         <input type="hidden" value="{{ $product->name }}" name="product_name">
                         <input type="hidden" value="{{ $product->description  }}" name="description">
@@ -473,9 +473,9 @@
                         <input type="hidden" value="{{ $product->image }}" name="image">
                        <button type="submit" ><a  class="btn">Add To Cart</a></button>
                     </form>
-                    <h3>Product Details <i class="fa fa-indent"></i></h3>
+                    <h3 style="margin-left: 10px">Product Details <i class="fa fa-indent"></i></h3>
                     <br>
-                    <p>{{ $product->description }}</p>
+                    <p style="margin-left: 10px">{{ $product->description }}</p>
     
     
                 </div>

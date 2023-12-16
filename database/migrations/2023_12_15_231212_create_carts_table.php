@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('image')->nullable();
             $table->text('quantity')->nullable();
             $table->text('others')->nullable();
+            $table->text('total')->nullable();
             $table->timestamps();
         });
     }

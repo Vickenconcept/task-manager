@@ -19,8 +19,8 @@ return new class extends Migration
             $table->text('price');
             $table->text('quantity')->nullable();
             $table->text('discount')->nullable();
-            // $table->enum('hot_product',[0,1])->default(0);
-            $table->string('tag')->unique();
+            $table->text('hot_product')->nullable();
+            $table->string('tag')->unique()->nullable();
             $table->string('slug')->unique();
             $table->text('best_selling')->nullable();
             $table->json('image');

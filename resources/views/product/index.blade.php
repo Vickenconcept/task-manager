@@ -23,7 +23,7 @@
             @foreach ($products as $product)
                 <div class="max-w-sm  overflow-hidden shadow-lg rounded-lg  hover:shadow">
                     <a href="{{ route('products.show', ['product' => $product]) }}">
-                        <img class="w-full" src="{{ asset('images/p13.png') }}" alt="Sunset in the mountains">
+                        <img class="w-full" src="{{$product->image }}" alt="Sunset in the mountains">
                     </a>
                     <div class="px-6 py-4">
                         <div class="font-bold text-xl mb-2">{{ $product->name }}</div>
