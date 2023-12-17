@@ -58,7 +58,9 @@
                                 @method('DELETE')
                                 <button type="submit"><i class="bx bx-x text-red-500 text-xl "></i></button>
                             </form>
-                            <button><i class="bx bx-edit text-green-500 text-xl "></i></button>
+                            <a href="{{ route('products.edit',['product'=> $product]) }}">
+                                <button><i class="bx bx-edit text-green-500 text-xl "></i></button>
+                            </a>
                           </div>
                         </div>
                     </div>

@@ -20,6 +20,7 @@ class Product extends Component
             $this->quantity--;
             $this->total = $this->product->price * $this->quantity;
             $this->product->total = $this->total;
+            $this->product->quantity = $this->quantity;
             $this->product->update();
         }
         return;
@@ -30,6 +31,7 @@ class Product extends Component
         $this->total = $this->product->price * $this->quantity;
 
         $this->product->total = $this->total;
+        $this->product->quantity = $this->quantity;
         $this->product->update();
         // dd($user->total);
     }

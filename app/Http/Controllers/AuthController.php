@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -17,9 +18,11 @@ class AuthController extends Controller
 
         $user = User::create($request->validated());
 
+        auth()->logout();
         return $request->wantsJson()
             ? Response::api(['data' => $user])
-            : to_route('register.success');
+            : to_route('login');
+
     }
 
     public function login(CreateUserRequest $request)
@@ -32,7 +35,11 @@ class AuthController extends Controller
 
         $userData = $this->createAccessToken();
 
-        return $request->wantsJson() ? $userData : to_route('home.index');
+        $lastUrl = Session::get('last_url');
+
+        Session::forget('last_url');
+
+        return $request->wantsJson() ? $userData : redirect()->to($lastUrl ?? route('home.index'));
     }
 
     private function createAccessToken(): User

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,12 +13,13 @@ class DashboardController extends Controller
 {
     $products = Product::latest()->get();
     $categories = Category::latest()->get();
+    $orders = Order::latest()->get();
     $data = Product::with('category')->latest()->get();
     // dd(count($data));
 
    
 
-    return view('dashboard', compact('products','categories'));
+    return view('dashboard', compact('products','categories','orders'));
 } 
     public function create()
 {

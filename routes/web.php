@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
     // Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::resource('/cart', CartController::class);
-    Route::resource('/home', DashboardController::class);
+    Route::resource('/home', DashboardController::class)->middleware('admin');
+    // Route::get('checkout', CheckoutController::class)->name('checkout');
 });
 

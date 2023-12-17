@@ -31,6 +31,12 @@
                     @endforeach
                 </ul>
             </div>
+            @else
+                <div class="alert alert-success">
+                    <!-- Your success message goes here -->
+                    <p class="bg-green-50 w-full p-3 space-y-1 rounded border border-green-400 text-xs text-green-400">
+                        Created Successfully</p>
+                </div>
         @endif
             <div class="lg:w-[90%] w-full mx-auto mb-3 flex items-center justify-between">
                 <h1 class="font-semibold text-2xl">New Product</h1>

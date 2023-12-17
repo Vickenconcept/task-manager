@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ProductController extends Controller
         $products = Product::latest()->get();
         return view('clothe', compact('products'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -44,7 +45,7 @@ class ProductController extends Controller
 
         Product::create($payload);
 
-        return back()->with('success','created successfully');
+        return back()->with('success', 'created successfully');
     }
     public function selectBestSelling(Request $request, Product $product)
     {
@@ -53,7 +54,7 @@ class ProductController extends Controller
         ]);
         $product->best_selling = $payload['best_selling'];
         $product->update();
-        return back()->with('success','Updated Successfully');
+        return back()->with('success', 'Updated Successfully');
     }
 
     /**
@@ -61,8 +62,12 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        
-        return view('product.show', ['product' => $product]);
+        $products = Product::where('category_id', $product->category_id)
+            ->latest()
+            ->take(4)
+            ->get();
+
+        return view('product.show', ['product' => $product, 'products' => $products]);
     }
 
     /**
@@ -70,7 +75,8 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $categories = Category::latest()->get();
+        return view('product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -78,7 +84,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $payload = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'price' => 'required',
+            'discount' => 'sometimes',
+            'quantity' => 'sometimes',
+            'image' => 'required',
+        ]);
+
+        $product->update($payload);
+
+
+        return back()->with('success', 'created successfully');
     }
 
     /**
@@ -88,6 +107,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return back()->with('success','Deleted Successfully');
+        return back()->with('success', 'Deleted Successfully');
     }
 }

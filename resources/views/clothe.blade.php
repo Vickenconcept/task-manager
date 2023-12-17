@@ -28,7 +28,7 @@
                                 <i class="fas fa-star checked"></i>
                                 <i class="fas fa-star checked"></i>
                             </div>
-                            <h5>$12.3 <strike>$15.5</strike> <span><a href="{{ route('products.show',['product'=> $product]) }}"><i class="fa-solid fa-cart-shopping"></i></a></span></h5>
+                            <h5>${{ $product->price }} <strike>$15.5</strike> <span><a href="{{ route('products.show',['product'=> $product]) }}"><i class="fa-solid fa-cart-shopping"></i></a></span></h5>
                         </div>
                     </div>
                 </div>

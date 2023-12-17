@@ -18,7 +18,7 @@
         <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" alt=""
                 width="180px"></a>
 
-                <div><a href="/" class="">Home</a></div>
+        <div><a href="/" class="">Home</a></div>
     </nav>
     <div class="px-20 py-10">
         <div class="py-3 text-end">
@@ -60,18 +60,16 @@
                 <h2 class="text-white py-3">Total Categories</h2>
                 <div class="flex flex-row justify-between py-3">
                     <span class="text-white text-xl font-semibold">{{ count($categories) }}</span>
-                    <a href="{{ route('products.create') }}">
                         <span
                             class="w-10 h-10 rounded-full bg-slate-100/50 text-white flex justify-center items-center"><i
                                 class='bx bx-detail text-xl'></i></span>
-                    </a>
                 </div>
             </div>
             <!-- card -->
             <div class="bg-blue-500 px-5 rounded-md ">
-                <h2 class="text-white py-3">Hot Products</h2>
+                <h2 class="text-white py-3">Total Order</h2>
                 <div class="flex flex-row justify-between py-3">
-                    <span class="text-white text-xl font-semibold">30</span>
+                    <span class="text-white text-xl font-semibold">{{ count($orders) }}</span>
                     <span class="w-10 h-10 rounded-full bg-slate-100/50 text-white flex justify-center items-center"><i
                             class='bx bx-detail text-xl'></i></span>
                 </div>
@@ -99,25 +97,50 @@
                 <table class="w-full table table-fixed">
                     <thead>
                         <tr class="text-left border-b-2 shadow-md ">
-                            <th class="text-gray-700 font-semibold uppercase text-sm pl-10">Customer</th>
-                            <th class="text-gray-700 font-semibold uppercase text-sm ">Order ID</th>
-                            <th class="text-gray-700 font-semibold uppercase text-sm ">Amount</th>
-                            <th class="text-gray-700 font-semibold uppercase text-sm ">Date</th>
-                            <th class="text-gray-700 font-semibold uppercase text-sm ">Status</th>
-                            <th class="text-gray-700 font-semibold uppercase text-sm pr-10">Action</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm pl-10">Customer</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm ">Order ID</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm ">Amount</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm ">QUANTITY</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm ">Date</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm ">Status</th>
+                            <th class="text-gray-700 font-semibold py-3 uppercase text-sm pr-10">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="border-b-2 shadow-md">
-                            <td class="text-gray-700 font-normal text-sm p-10 text-center" colspan="6">No pending
-                                orer available...</td>
-                        </tr>
+                        @forelse ($orders as $order)
+                            <tr class="text-left border-b-2 shadow-md ">
+                                <th class="text-gray-700 font-normal capitalize text-sm pl-10">{{ $order->user_id }}
+                                </th>
+                                <th class="text-gray-700 font-normal capitalize text-sm ">{{ $order->order_id }}</th>
+                                <th class="text-gray-700 font-normal capitalize text-sm ">{{ $order->amount }}</th>
+                                <th class="text-gray-700 font-normal capitalize text-sm ">{{ $order->quantity }}</th>
+                                <th class="text-gray-700 font-normal capitalize text-sm ">{{ $order->created_at }}
+                                </th>
+                                <th class="text-gray-700 font-normal capitalize text-sm ">{{ $order->status }}</th>
+                                <th class="text-gray-700 font-normal capitalize text-sm pr-10">
+
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" value="" class="sr-only peer" checked>
+                                        <div
+                                            class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300   peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                                        </div>
+                                    </label>
+
+                                </th>
+                            </tr>
+                        @empty
+
+                            <tr class="border-b-2 shadow-md">
+                                <td class="text-gray-700 font-normal text-sm p-10 text-center" colspan="6">No pending
+                                    orer available...</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
             <div class="col-span-1 grid grid-cols-2 lg:grid-cols-1 gap-8">
                 <!-- card -->
-                <div class="bg-white px-5  rounded-md  py-3">
+                <div class="bg-white px-5  rounded-md  py-3 shadow h-28">
                     <h2 class="text-blue-700 pb-3 font-bold">Orders</h2>
                     <div class="flex flex-row justify-between ">
                         <div class="">
@@ -136,14 +159,13 @@
                     </div>
                 </div>
                 <!-- card -->
-                <div class="bg-white px-5  rounded-md  py-3">
+                {{-- <div class="bg-white px-5  rounded-md  py-3">
                     <h2 class="text-blue-700 pb-3 font-bold">Orders</h2>
                     <div class="flex flex-row justify-between ">
                         <div class="">
                             <div class="flex flex-row">
                                 <div
                                     class="w-10 h-10 bg-blue-900 rounded-full  border  border-gray-300   overflow-hidden mr-1">
-                                    {{-- <img src="{{ cloudinary_url('running_shoe') }}" alt="avatar" class="w-full object-cover"> --}}
                                 </div>
                                 <div>
                                     <h1 class="text-gray-700 text-sm font-semibold ">$0.00</h1>
@@ -153,7 +175,7 @@
                         </div>
                         <div><i class="bx bx-signal-5 text-left my-auto  text-2xl  text-green-400"></i></div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </section>
     </div>

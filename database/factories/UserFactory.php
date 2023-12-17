@@ -20,6 +20,7 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'is_admin' => 0,
             'email_verified_at' => now(),
             'password' => 'pass123', // password
             'remember_token' => Str::random(10),

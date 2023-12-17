@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -218,11 +217,11 @@
         }
 
 
-    
+
         ul {
             list-style-type: none;
         }
-      
+
 
         .menu-icon {
             width: 28px;
@@ -420,6 +419,7 @@
         }
     </style>
 </head>
+
 <body>
 
     {{-- <x-header /> --}}
@@ -428,7 +428,7 @@
 
         <div class="container">
         </div>
-    
+
         <!-------- Single Product Details --------->
         <div class="small-container single-product">
             <div class="row">
@@ -437,7 +437,7 @@
                         <img src="{{ $product->image }}" class="w-full h-full" id="ProductImg">
 
                     </div>
-    
+
                     <div class="small-img-row mt-2">
                         <div class="small-img-col">
                             <img src="{{ $product->image }}" width="100%" class="small-img h-20">
@@ -452,7 +452,7 @@
                             <img src="{{ $product->image }}" width="100%" class="small-img h-20">
                         </div>
                     </div>
-    
+
                 </div>
                 <div class="col-2 ">
                     <h1 style="margin-left: 10px">{{ $product->name }}</h1>
@@ -468,16 +468,16 @@
                     <form action="{{ route('cart.store') }}" method="post" class="inline" style="margin-left: 10px">
                         @csrf
                         <input type="hidden" value="{{ $product->name }}" name="product_name">
-                        <input type="hidden" value="{{ $product->description  }}" name="description">
+                        <input type="hidden" value="{{ $product->description }}" name="description">
                         <input type="hidden" value="{{ $product->price }}" name="price">
                         <input type="hidden" value="{{ $product->image }}" name="image">
-                       <button type="submit" ><a  class="btn">Add To Cart</a></button>
+                        <button type="submit"><a class="btn">Add To Cart</a></button>
                     </form>
                     <h3 style="margin-left: 10px">Product Details <i class="fa fa-indent"></i></h3>
                     <br>
                     <p style="margin-left: 10px">{{ $product->description }}</p>
-    
-    
+
+
                 </div>
             </div>
         </div>
@@ -486,68 +486,31 @@
             <div class="row row-2">
                 <h2>Related Products</h2>
                 <p>View More</p>
-    
+
             </div>
         </div>
-    
+
         <!-------- products -------->
         <div class="small-container">
             <div class="row">
-                <div class="col-4">
-                    <img src="IMAGE/product-9.jpg">
-                    <h4>Red Printed T-Shirt</h4>
-                    <div class="rating">
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="IMAGE/product-10.jpg">
-                    <h4>Red Printed T-Shirt</h4>
-                    <div class="rating">
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="IMAGE/product-11.jpg">
-                    <h4>Red Printed T-Shirt</h4>
-                    <div class="rating">
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                    </div>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="IMAGE/product-12.jpg">
-                    <h4>Red Printed T-Shirt</h4>
-                    <div class="rating">
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class= "fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <p>$50.00</p>
-                </div>
+                @foreach ($products as $product)
+                    <a href="{{ route('products.show',['product'=> $product]) }}" class="col-4">
+                        <img src="{{ $product->image }}">
+                        <h4>{{ $product->name }}</h4>
+                        <div class="rating">
+                            <i class= "fa fa-star"></i>
+                            <i class= "fa fa-star"></i>
+                            <i class= "fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>${{ $product->price }}</p>
+                    </a>
+                @endforeach  
             </div>
-    
         </div>
-    
     </div>
 
-{{-- <x-footer /> --}}
-    
 </body>
+
 </html>
