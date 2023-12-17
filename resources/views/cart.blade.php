@@ -13,8 +13,8 @@
 <body class="bg-gray-100">
     
     <div class="container mx-auto mt-10">
-        <div class="flex shadow-md my-10">
-            <div class="w-3/4 bg-white px-10 py-10">
+        <div class="flex flex-col md:flex-row md:gird-col-4 shadow-md my-10 ">
+            <div class="md:w-4/6 lg:w-3/4 w-full bg-white px-10 py-10">
                 <div class="flex justify-between border-b pb-8">
                     <h1 class="font-semibold text-2xl">Shopping Cart</h1>
                     <h2 class="font-semibold text-2xl">{{ count($productsInCart) }} Items</h2>
@@ -65,7 +65,7 @@
                         class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
             </div> --}}
-            <livewire:checkout-card  :products="$productsInCart"/>
+                <livewire:checkout-card  :products="$productsInCart"/>
            
 
         </div>

@@ -20,7 +20,7 @@
                         <img src="{{ $product->image }}" alt="image">
                         <div class="card-body">
                             <h3>{{ $product->name }}</h3>
-                            <p>{{ $product->description }}</p>
+                            <p class="line-clamp-1">{{ $product->description }}</p>
                             <div class="star">
                                 <i class="fas fa-star checked"></i>
                                 <i class="fas fa-star checked"></i>

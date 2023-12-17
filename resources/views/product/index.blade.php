@@ -13,9 +13,13 @@
 </head>
 
 <body>
-    <nav class="text-gray-50 bg-blue-950 px-2 md:px-10 py-1">
+    <nav class="text-gray-50 bg-blue-950 px-2 md:px-10 py-1 flex items-center">
         <a class="navbar-brand" href="/"><img src="{{ asset('images/logo.png') }}" alt=""
                 width="180px"></a>
+                <div class="space-x-3">
+                    <a href="/" class="hover:underline">Home</a>
+                    <a href="{{ route('home.index') }}" class="hover:underline">Dashboard</a>
+                </div>
     </nav>
     <div class="py-10 space-y-5 mx-auto w-[80%]">
         <h1 class="text-2xl font-semibold tracking-widest underline">Products</h1>

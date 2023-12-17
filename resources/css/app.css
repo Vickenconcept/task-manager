@@ -16,3 +16,26 @@
 .btn-primary {
     @apply flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
+        div.relative {
+          position: relative;
+        } 
+        
+        div.absolute {
+          position: absolute;
+          top: 40px;
+          right: 35px;
+          width: 250px;
+          /* border: 3px solid #73AD21; */
+          background: #1c1c50;
+          padding: 5px;
+          z-index: 9999;
+          box-shadow: 1px 2px 3px gray;
+        }
+        div.absolute a {
+            color: white;
+            text-decoration: none;
+        
+        }
+        div.absolute a:hover {
+            text-decoration: underline;
+        }

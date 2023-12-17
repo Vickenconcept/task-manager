@@ -1,4 +1,4 @@
-<div id="summary" class="w-1/4 px-8 py-10" wire:poll="realTotal" x-data="{ isOpen: false }">
+<div id="summary" class="md:w-2/6 lg:w-1/4 w-full px-8 py-10" wire:poll="realTotal" x-data="{ isOpen: false }">
     <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
     <div class="flex justify-between mt-10 mb-5">
         <span class="font-semibold text-sm uppercase">Items {{ count($products) }}</span>
@@ -59,7 +59,7 @@
         </div>
 
         <button wire:click="realTotal" @click="isOpen=true" @if ($total == 0) disabled @endif
-            class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+            class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full px-3">Checkout</button>
 
 
         <script src="https://js.paystack.co/v1/inline.js"></script>

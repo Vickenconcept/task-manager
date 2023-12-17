@@ -10,8 +10,8 @@
                 Ignite Your Passion, and Shop the Extraordinary way!</p>
             <a href="{{ route('products.index') }}"><button id="shopnow">Shop Now</button></a>
         </div>
-        <div class="img">
-            <img src="{{ asset('images/banner2.jpg') }}" alt="">
+        <div class="img" style="">
+            <img src="{{ asset('images/p2.png') }}" alt="">
         </div>
     </section>
     <!-- home content -->
