@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::latest()->get();
+        return view('category', compact('categories'));
     }
 
     /**
@@ -52,7 +53,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+
+        $request->validate([
+            'category' => 'required'
+        ]);
+        $category->name = $request->input('category');
+        $category->update();
+
+        return back()->with('success', 'Changed Successfully');
     }
 
     /**

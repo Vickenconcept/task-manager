@@ -40,28 +40,7 @@
             <p>No Product yet</p>
         @endforelse
 
-        {{-- <div class="col-md-4 py-3 py-md-0">
-                <div class="card" style="background-color: #a9a9a926;">
-                    <img src="{{ asset('images/topcard2.png') }}" alt="">
-                    <div class="card-img-overlay">
-                        <h5 class="card-titel">Nike Shoes</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, ratione!</p>
-                        <p><strong>$150.10 <strike>$200.10</strike></strong></p>
-                        <button>Order Now</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 py-3 py-md-0">
-                <div class="card" style="background-color: #a9a9a926;">
-                    <img src="{{ asset('images/topcard3.png') }}" alt="">
-                    <div class="card-img-overlay">
-                        <h5 class="card-titel">Bag</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                        <p><strong>$50.10 <strike>$60</strike></strong></p>
-                        <button>Order Now</button>
-                    </div>
-                </div>
-            </div> --}}
+        
     </div>
 </div>
 <!-- top cards -->
@@ -71,7 +50,7 @@
 <div class="banner">
     <div class="content">
         <h1>Get Up To 50% Off</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, animi?</p>
+        <p>Discover more must-have items! Elevate your look and shop now for the latest in fashion.</p>
         <a href="{{ route('products.index') }}">
             <div id="bannerbtn"><button>SHOP NOW</button></div>
         </a>
@@ -119,13 +98,7 @@
 </div>
 <div class="container">
     <h3 style="font-weight: bold;">PRODUCT.</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero eius ipsam incidunt illum totam
-        nostrum quidem sit cumque fugit. Accusamus rem praesentium labore tempore ullam porro quaerat fugiat cum
-        ipsum, sint perferendis voluptate ad, quod reiciendis officia! In voluptate quae expedita sunt eum placeat
-        alias soluta. Rem commodi, impedit error doloribus ratione at provident beatae, aut doloremque sunt possimus
-        voluptas recusandae nam aliquid eos quia minus harum repellat quae eveniet laborum dolore esse voluptate
-        sed. Voluptate ullam dolor sapiente neque labore hic nam odio qui consectetur porro minima nesciunt suscipit
-        vitae obcaecati reiciendis itaque ipsum unde, debitis nemo soluta!</p>
+    <p>Introducing Seventhapril – your style essentials redefined. Explore a curated collection of high-quality clothing, shoes, and wristwatches designed to empower your unique expression. Elevate your fashion effortlessly with Seventhapril, where every piece celebrates your individual style. Welcome to a world where style knows no limits.</p>
 
     <hr>
 </div>

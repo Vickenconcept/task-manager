@@ -3,7 +3,7 @@
         <div class="banner2">
             <div class="content2">
                 <h1>Get More Product</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, animi?</p>
+                <p>Explore our latest arrivals for an elevated shopping experience. Upgrade your style today!</p>
                 <div id="bannerbtn2"><button>SHOP NOW</button></div>
             </div>
         </div>
@@ -44,7 +44,7 @@
     </div>
     <div class="container">
         <h3 style="font-weight: bold;">PRODUCT.</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque vero eius ipsam incidunt illum totam nostrum quidem sit cumque fugit. Accusamus rem praesentium labore tempore ullam porro quaerat fugiat cum ipsum, sint perferendis voluptate ad, quod reiciendis officia! In voluptate quae expedita sunt eum placeat alias soluta. Rem commodi, impedit error doloribus ratione at provident beatae, aut doloremque sunt possimus voluptas recusandae nam aliquid eos quia minus harum repellat quae eveniet laborum dolore esse voluptate sed. Voluptate ullam dolor sapiente neque labore hic nam odio qui consectetur porro minima nesciunt suscipit vitae obcaecati reiciendis itaque ipsum unde, debitis nemo soluta!</p>
+        <p>Introducing Seventhapril – your style essentials redefined. Explore a curated collection of high-quality clothing, shoes, and wristwatches designed to empower your unique expression. Elevate your fashion effortlessly with Seventhapril, where every piece celebrates your individual style. Welcome to a world where style knows no limits.</p>
     
         <hr>
     </div>

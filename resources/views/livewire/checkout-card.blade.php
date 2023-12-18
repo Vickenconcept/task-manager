@@ -84,7 +84,7 @@
                     },
                     callback: function(response) {
                         let message = 'Payment complete! Reference: ' + response.reference;
-                        // alert(message);
+                        alert(message);
 
 
                         @this.dispatch('paymentSuccess', {

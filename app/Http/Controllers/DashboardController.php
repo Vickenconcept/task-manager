@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     $products = Product::latest()->get();
     $categories = Category::latest()->get();
-    $orders = Order::latest()->get();
+    $orders = Order::where('status', 'pending')->latest()->get();
     $data = Product::with('category')->latest()->get();
     // dd(count($data));
 

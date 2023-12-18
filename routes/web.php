@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
     // Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::resource('/cart', CartController::class);
+    Route::resource('/order', OrderController::class);
+    Route::resource('/category', CategoryController::class);
     Route::resource('/home', DashboardController::class)->middleware('admin');
     // Route::get('checkout', CheckoutController::class)->name('checkout');
 });

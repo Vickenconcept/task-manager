@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         css * {
             margin: 0;
@@ -421,41 +422,36 @@
 </head>
 
 <body>
-
-    {{-- <x-header /> --}}
     <div>
-
-
         <div class="container">
         </div>
-
         <!-------- Single Product Details --------->
         <div class="small-container single-product">
             <div class="row">
                 <div class="col-2">
-                    <div class="bg-red-500 h-72">
-                        <img src="{{ $product->image }}" class="w-full h-full" id="ProductImg">
+                    <div class="bg-red-500 ">
+                        <img src="{{ $product->image }}" class="w-full " id="ProductImg">
 
                     </div>
 
                     <div class="small-img-row mt-2">
                         <div class="small-img-col">
-                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-24 ">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-24 grayscale">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-24 opacity-50 ">
                         </div>
                         <div class="small-img-col">
-                            <img src="{{ $product->image }}" width="100%" class="small-img h-20">
+                            <img src="{{ $product->image }}" width="100%" class="small-img h-24 opacity-80">
                         </div>
                     </div>
 
                 </div>
                 <div class="col-2 ">
-                    <h1 style="margin-left: 10px">{{ $product->name }}</h1>
+                    <h1 style="margin-left: 10px" class="capitalize">{{ $product->name }}</h1>
                     <h4 style="margin-left: 10px">{{ $product->price }}</h4>
                     {{-- <select>
                         <option>Select size</option>
@@ -473,7 +469,7 @@
                         <input type="hidden" value="{{ $product->image }}" name="image">
                         <button type="submit"><a class="btn">Add To Cart</a></button>
                     </form>
-                    <h3 style="margin-left: 10px">Product Details <i class="fa fa-indent"></i></h3>
+                    <h3 style="margin-left: 10px" class="font-bold text-gray-400">Product Details <i class="fa fa-indent"></i></h3>
                     <br>
                     <p style="margin-left: 10px">{{ $product->description }}</p>
 
@@ -485,7 +481,7 @@
         <div class="small-container">
             <div class="row row-2">
                 <h2>Related Products</h2>
-                <p>View More</p>
+                <a href="{{ route('products.index') }}"><p>View More</p></a>
 
             </div>
         </div>
@@ -494,15 +490,15 @@
         <div class="small-container">
             <div class="row">
                 @foreach ($products as $product)
-                    <a href="{{ route('products.show',['product'=> $product]) }}" class="col-4">
+                    <a href="{{ route('products.show',['product'=> $product]) }}" class="col-4 hover:shadow">
                         <img src="{{ $product->image }}">
                         <h4>{{ $product->name }}</h4>
-                        <div class="rating">
-                            <i class= "fa fa-star"></i>
-                            <i class= "fa fa-star"></i>
-                            <i class= "fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+                        <div class="rating text-yellow-400">
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star-half' ></i>
+                            <i class='bx bx-star' ></i>
                         </div>
                         <p>${{ $product->price }}</p>
                     </a>

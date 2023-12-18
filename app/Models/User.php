@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Cart;
-use App\Models\Project;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -45,9 +45,14 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function orders()
+{
+    return $this->hasMany(Order::class);
+}
    
     public function carts() {
         
         return $this->hasMany(Cart::class);
     }
+
 }

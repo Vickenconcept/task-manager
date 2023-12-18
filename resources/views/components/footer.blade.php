@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 footer-content">
                     <h3>Fashion</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, hic?</p>
+                    <p>Discover more must-have items! Elevate your look and shop now for the latest in fashion.</p>
                     <p>
                         Karcahi <br>
                         Sindh <br>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Services</h4>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, rem!</p>
+                    <p>Experience exceptional service tailored to your needs – where satisfaction meets style.</p>
                     <ul>
                         <li><a href="#">Smart phone</a></li>
                         <li><a href="#">Smart watch</a></li>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Our Social Network</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, ad?</p>
+                    <p>Stay updated on the latest trends, exclusive offers, and interact with fellow fashion enthusiasts</p>
                     <div class="socail-links mt-3">
                         <a href="#" class="twiiter"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" class="twiiter"><i class="fa-brands fa-facebook-f"></i></a>
